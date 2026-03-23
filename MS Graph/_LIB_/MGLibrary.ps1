@@ -71,7 +71,7 @@ function ConnectMSGraph(){
                     client_secret = $SecretValue
                     grant_type    = "client_credentials"
                     }
-                $tokenRequest = Invoke-WebRequest –Method Post –Uri $uri –ContentType "application/x-www-form-urlencoded" –Body $body –UseBasicParsing
+                $tokenRequest = Invoke-WebRequest -Method Post -Uri $uri -ContentType "application/x-www-form-urlencoded" -Body $body -UseBasicParsing
                 [string]$mgToken =($tokenRequest.Content | ConvertFrom-Json).access_token
                 if($v1.IsPresent -eq $false){
                     [securestring]$secToken = ConvertTo-SecureString -String $mgToken -AsPlainText -Force
